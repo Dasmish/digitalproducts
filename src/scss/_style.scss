@@ -1,0 +1,323 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700');
+
+@font-face{ 
+	font-family:'Proxima Nova';
+	src:url("../fonts/Proxima Nova Regular.otf") format("opentype"),
+	url("../fonts/proxima nova regular.woff2") format("woff2"),
+	url("../fonts/proxima nova regular.woff") format("woff");
+	font-weight:normal;
+	font-style:normal
+}
+
+$whiteColor: #fefefb;
+$greyColor: #665f60;
+$fontFamily: 'PT Sans', sans-serif;
+
+*{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	transition: all .4s ease-in;
+}
+html{
+	font-size: 10px;
+	height: 100%;
+}
+body{
+	min-height: 100%;
+	font-size: 1.6rem;
+	font-family: $fontFamily;
+	font-weight: 400;
+}
+
+.container{
+	margin: 0 auto;
+	max-width: 1200px;
+}
+
+
+
+//Styles for whole tags on page
+h1{
+	font-size: 7.2rem;
+	color: $whiteColor;
+	letter-spacing: 2px;
+}
+h2{
+	font-size: 3rem;
+}
+p{
+	font-family: $fontFamily;
+	font-size: 2rem;
+}
+//End of Styles for whole tags on page
+
+
+//Images size
+.svg{
+	width: 65px;
+	height: 65px;
+}
+
+
+
+//Buttons styles
+.btn-primary{
+	font-size: 2rem;
+	padding: 10px 30px;
+	color: $greyColor;
+	background: transparent;
+	border-color: $greyColor;
+}
+.btn-secondary{
+	font-size: 2rem;
+	padding: 10px 40px;
+	color: $whiteColor;
+	background: transparent;
+	border-color: $whiteColor;
+	margin-top: 70px;
+}
+//End of Buttons styles
+
+
+
+//Text colors
+.white-text{
+	color: $whiteColor;
+}
+.grey-text{
+	color: $greyColor;
+}
+//End of Text colors
+
+
+
+//Font styles
+.font{
+	font-family: $fontFamily;
+	&--italic{
+		font-weight: 400;
+		font-style: italic;
+	}
+	&--bold{
+		font-weight: 700;
+	}
+}
+//End of Font styles
+
+
+
+//Mixin for background options
+@mixin borderOpt{
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+@mixin bgi($image){
+	background-image: url($image);
+}
+
+.vh-100{
+	height: 100vh;
+}
+//Backgrounds of section 1
+.sec-bg{
+	@include bgi('../img/main_bg.jpg');
+	@include borderOpt();
+}
+// Background image in section 2 
+.about{
+	@include bgi('../img/about.jpg');
+	height: 560px;
+	@include borderOpt();
+}
+//Background of section 3
+.works-bg{
+	@include bgi('../img/works.jpg')
+}
+
+
+//Background for squares in section 2
+.grey-bg{
+	background-color: #ebebeb;
+}
+.purplebg{
+	background-color: #9F9ACF;
+	position: relative;
+	overflow: hidden;
+}
+#map{
+	height: 100%;
+	width: 100%;
+	opacity: .5;
+}
+#name{
+	position: absolute;
+	top: 40px;
+	left: 50%;
+	transform: translate(-50%, 0);
+	z-index: 1;
+}
+
+
+
+//Position outside of block
+.ptop{
+	padding-top: 125px;
+}
+//Position inside block
+.innerP{
+	padding-top: 30%;
+}
+
+
+.navbar-toggler{
+	font-size: 2rem;
+}
+//Nav styles
+.nav-link{
+	font-size: 2.4rem;
+	text-transform: uppercase;
+	color: #fff;
+}
+//End of Nav styles
+//Carousel Styles
+.carousel-indicators{
+	bottom: -50px;
+}
+.carousel-indicators li{
+	height: 10px;
+	width: 10px;
+	border-radius: 50%;
+	border: 2px solid $whiteColor;
+	background-color: transparent;
+}
+
+
+//Footer Styles
+.footer{
+	background-color: #9f9acf;
+	padding: 80px 40px;
+}
+//End of Footer Styles
+
+//Grid container
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: "greyBg transparentBg bgpic" "transparentBg2 geryBg2 bgpic";
+  grid-template-rows: 400px 400px;
+}
+
+.bgpic { 
+	grid-area: bgpic; 
+	background-image: url('../img/services.jpg'); 
+}
+
+.transparentBg { grid-area: transparentBg;  }
+
+.greyBg { grid-area: greyBg; background-color: #DBDBDB;  }
+
+.transparentBg2 { grid-area: transparentBg2;  }
+
+.geryBg2 { grid-area: geryBg2; background-color: #DBDBDB;  }
+
+//End of grid container
+
+
+.address{
+	position: absolute;
+	width: 350px;
+	height: 100px;
+	background-color: #DAD8E3;
+	top:50%;
+	transform: translate(100%, 0);
+	&__img{
+		width: 30%;
+		@include bgi('../img/linked-in.svg');
+		@include borderOpt();
+	}
+}
+
+.form{
+	position: absolute;
+	z-index: 1;
+	transform: translate(50%, 50%);
+	opacity: .8;
+	& input{
+		padding: 25px;
+		font-size: 2rem;
+	}
+}
+
+.person{
+	position: relative;
+	padding-top: 100px;
+	&__img{
+		max-width: 80%;
+		top: 0;
+		position: absolute;
+		transform: translate(-50%, 0);
+	}
+	&__info{
+		background-color: $whiteColor;
+		padding-top: 50%;
+	}
+	&__name{
+		height: 42px;
+		padding: 0 10px;
+		overflow: hidden;
+	}
+	&__qw{
+		width: 100%;
+		height: 70px;
+		background-color: #9f9acf;
+		margin: 50px 0 0 0;
+		padding: 15px;
+	}
+	&__socials{
+		display: inline-block;
+		padding: 0;
+		justify-content: center;
+	}
+	&__social{
+		display: inline-block;
+		width: 30px;
+		height: 30px;
+		margin-left: 15px;
+		border-radius: 50%;
+		&--in{
+			@include bgi('../img/linked-in.svg');
+			@include borderOpt();
+		}
+		&--tw{
+			@include bgi('../img/twitter.svg');
+			@include borderOpt();
+		}
+		&--gp{
+			@include bgi('../img/google+.svg');
+			@include borderOpt();
+		}
+		&--fb{
+			@include bgi('../img/facebook.svg');
+			@include borderOpt();
+		}
+		&--be{
+			@include bgi('../img/behance.svg');
+			@include borderOpt();
+		}
+	}
+}
+
+
+
+@media (max-width: 767.98px) {
+	.custom{
+		display: none;
+	}
+	.person__socials{
+		display: flex;
+		justify-content: center;
+	}
+}
